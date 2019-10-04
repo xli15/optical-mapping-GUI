@@ -5,15 +5,15 @@ b = firpm(f_order,f0,a0);
 
 
 temp = reshape(data,[],size(data,3));
-% filt_temp = zeros(size(temp));
-% for i = 1:size(temp,1)
-%     if sum(temp(i,:)) ~= 0
-%         filt_temp(i,:) = filtfilt(b,a,temp(i,:)); % needed to create 0 phase offset
-%     end
-% end
+filt_temp = zeros(size(temp));
+for i = 1:size(temp,1)
+    if  sum(isnan(temp(i,:)))==0 
+        filt_temp(i,:) = filtfilt(b,a,temp(i,:)); % needed to create 0 phase offset
+    end
+end
 
-filt_temp = filtfilt(b,a,temp'); 
-filt_temp =filt_temp';
+% filt_temp = filtfilt(b,a,temp'); 
+% filt_temp =filt_temp';
 filt_data = reshape(filt_temp,size(data,1),size(data,2),[]);
 
 
