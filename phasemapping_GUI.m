@@ -6,7 +6,8 @@ function phasemapping_GUI5
  
 
 close all; clc; clear all;
-addpath(genpath(pwd))
+% make sure to op_gui_funcs were added to the path
+% addpath(genpath(pwd))
 
 group_font_size = 14;
 button_font_size = 14;
